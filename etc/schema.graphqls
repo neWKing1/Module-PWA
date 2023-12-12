@@ -1,0 +1,22 @@
+type Customer {
+    id: Int
+    firstname: String
+    lastname: String
+    email: String
+    department: String
+}
+input UpdateCustomerInput {
+    firstname: String
+    lastname: String
+    email: String
+    department: String
+}
+
+extend type Mutation {
+    updateCustomer(input: UpdateCustomerInput!): Customer
+}
+
+
+
+
+
