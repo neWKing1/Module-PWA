@@ -18,7 +18,7 @@ extend type Mutation {
 
 
 interface ProductInterface {
-    show_on_pwa: Boolean
+    show_on_pwa: Boolean @resolver(class: "Tigren\\PWA\\Model\\Resolver\\Product\\ShowOnPWA")
 }
 
 input ProductAttributeFilterInput  {
