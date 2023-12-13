@@ -27,15 +27,14 @@ class ShowOnPWA implements ResolverInterface
         array $value = null,
         array $args = null
     ) {
-        $productCollection = $this->productFactory->create()->getCollection();
+        $product = $value['model'];
+        $productId = $product->getId();
 
-        $productCollection->addAttributeToFilter('show_on_pwa', 1);
+        if (!$productId) {
+            return null;
+        }
 
-        // Iterate through the collection
-//        foreach ($productCollection as $product) {
-//            // Perform actions with the product
-//            print_r($product->getData());
-//        }
-        return $productCollection;
+        $productModel = $this->productFactory->create()->load($productId);
+        return (boolean)$productModel->getData('show_on_pwa');
     }
 }
