@@ -17,6 +17,14 @@ extend type Mutation {
 }
 
 
+interface ProductInterface {
+    show_on_pwa: Boolean
+}
 
+input ProductAttributeFilterInput  {
+    show_on_pwa: FilterEqualTypeInput
+}
 
-
+input ProductFilterInput {
+    show_on_pwa: FilterTypeInput
+}
